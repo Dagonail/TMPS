@@ -1,6 +1,6 @@
 # Tehnici și Mecanisme de Proiectare Software
 
-*Author - Vladimir Roman*
+*Author - Cernei Irina*
 
 *Group - TI-164*
 
