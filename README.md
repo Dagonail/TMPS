@@ -1,12 +1,17 @@
 # Tehnici și Mecanisme de Proiectare Software
 
+Лабораторная №1
+
 *Подготовила - Черней Ирина, группа TI-164*
 
-*Целью данной лабораторией работы было имплементировать 5 порождающих шабловнов*
+*Целью данной лабораторной работы было имплементировать 5 порождающих шабловнов*
 
 Были выбраны 5 шаблонов: 
 1. Одиночка (Singleton)
 Это порождающий паттерн проектирования, который гарантирует, что у класса есть только один экземпляр, и предоставляет к нему глобальную точку доступа.
+
+Структура шаблона одиночка
+![Структура шаблона одиночка](https://refactoring.guru/images/patterns/diagrams/singleton/structure-ru-2x.png )
 
 Чтоб реализовать этот шаблон был создан класс [Map](https://github.com/cerneiirina/TMPS/blob/master/patternLab/Map/Map.cs)
 ```
@@ -43,24 +48,26 @@ public class Map
 Это порождающий паттерн проектирования, который определяет общий интерфейс для создания объектов в суперклассе, позволяя подклассам изменять тип создаваемых объектов.
 
 Паттерн Фабричный метод предлагает создавать объекты не напрямую, используя оператор new, а через вызов особого фабричного метода. Объекты всё равно будут создаваться при помощи  new, но делать это будет фабричный метод.
+
 ![Image of Factory Method](https://refactoring.guru/images/patterns/cards/factory-method-mini-2x.png)
 
-Declaration of [abstract class](https://github.com/vovaroman/PatternsLab1/blob/master/patternLab/Factory/AbstractObject.cs)
+Объявление [абстрактного класса](https://github.com/cerneiirina/TMPS/blob/master/patternLab/Factory/AbstractObject.cs) в 
 ```
 public abstract class AbstractObject : IObjectBuilder
 {
   ***
 }
 ```
+Чтобы эта система заработала, все возвращаемые объекты должны иметь общий интерфейс. 
 
-Declaration of [class that is responsible for 'circles'](https://github.com/vovaroman/PatternsLab1/blob/master/patternLab/Factory/Circle/CircleBuilder.cs)
+Для объявления [класса, отвечающего за "круги"](https://github.com/cerneiirina/TMPS/blob/master/patternLab/Factory/Circle/CircleBuilder.cs) в программе:
 ```
 public class CircleBuilder : AbstractObject, IObjectBuilder
 {
   ***
 }
 ```
-Declaration of [class that is responsible for 'rectangles'](https://github.com/vovaroman/PatternsLab1/blob/master/patternLab/Factory/Rectangle/RectangleBuilder.cs)
+Объявление [класса, который отвечает за "квадраты"](https://github.com/cerneiirina/TMPS/blob/master/patternLab/Factory/Rectangle/RectangleBuilder.cs)
 
 ```
 public class RectangleBuilder: AbstractObject, IObjectBuilder
@@ -69,11 +76,13 @@ public class RectangleBuilder: AbstractObject, IObjectBuilder
 }
 ```
 
-2. Abstract Factory
+3. Абстрактная фабрика (Abstract Factory)
+
+Это порождающий паттерн проектирования, который позволяет создавать семейства связанных объектов, не привязываясь к конкретным классам создаваемых объектов.
 
 ![Image of Abstract Factory](https://refactoring.guru/images/patterns/cards/abstract-factory-mini-2x.png)
 
-Declaration of interface in this [file](https://github.com/vovaroman/PatternsLab1/blob/master/patternLab/Factory/IUnitFactory.cs)
+Итрерфейс был объявлен в следующем [файле](https://github.com/cerneiirina/TMPS/blob/master/patternLab/Factory/IUnitFactory.cs)
 ```
 public interface IUnitFactory
 {
@@ -97,11 +106,19 @@ public class CircleFactory : IUnitFactory
 ```
 
 
-3. Builder
+4. Строитель (Builder)
 
-![Image of Builder](https://refactoring.guru/images/patterns/cards/factory-method-mini-2x.png)
+Это порождающий паттерн проектирования, который позволяет создавать сложные объекты пошагово. Строитель даёт возможность использовать один и тот же код строительства для получения разных представлений объектов.
 
-Declaration of [Object builder interface](https://github.com/vovaroman/PatternsLab1/blob/master/patternLab/Factory/IObjectBuilder.cs)
+![Image of Builder](https://refactoring.guru/images/patterns/diagrams/builder/solution1-2x.png)
+
+Строитель позволяет создавать сложные объекты пошагово. Промежуточный результат всегда остаётся защищён.
+
+Объявление [Object builder interface](https://github.com/cerneiirina/TMPS/blob/master/patternLab/Factory/IObjectBuilder.cs)
+
+
+Реализацию этого интерфейса вы можете проверить в Factory Method.
+Классы круга Builder и прямоугольник Builder реализует его.
 ```
 public interface IObjectBuilder
 {       
@@ -113,15 +130,16 @@ void ChangeColor();
 }
 ```
 
-Implementation of this interface was you can check in Factory Method.
-Classes circle builder and rectangle builder implements it.
+5. Проторип (Prototype)
 
-4. Prototype
+Это порождающий паттерн проектирования, который позволяет копировать объекты, не вдаваясь в подробности их реализации. Ниже приведен пример структуры шаблона протопит
 
-![Image of Prototype](https://refactoring.guru/images/patterns/cards/factory-method-mini-2x.png)
+![Image of Prototype](https://refactoring.guru/images/patterns/diagrams/prototype/structure-2x.png)
 
-Files where was created [prototype methods](https://github.com/vovaroman/PatternsLab1/blob/master/patternLab/Factory/Circle/CircleBuilder.cs)
-and [this](https://github.com/vovaroman/PatternsLab1/blob/master/patternLab/Factory/Rectangle/RectangleBuilder.cs)
+Прототип был использован как для [кругов](https://github.com/cerneiirina/TMPS/blob/master/patternLab/Factory/Circle/CircleBuilder.cs)
+, так и для [квадратов](https://github.com/cerneiirina/TMPS/blob/master/patternLab/Factory/Rectangle/RectangleBuilder.cs)
+
+Приведённые ниже методы возвращают новый экземпляр объектов.
 
 ```
 public static CircleBuilder CopyCircle(CircleBuilder tempCircle)
@@ -140,20 +158,9 @@ public static RectangleBuilder CopyRectangle(RectangleBuilder tempRectangle)
     return temp;
 }
 ```
-This methods return new instance of objects.
-
-
-5. Singleton 
-
-![Image of Singleton](https://refactoring.guru/images/patterns/cards/factory-method-mini-2x.png)
-
-For realisation of singleton pattern was created class [Map](https://github.com/vovaroman/PatternsLab1/blob/master/patternLab/Map/Map.cs) that is responsible for map of the application.
-One application - one map, philosophy of singleton method.
 
 
 
 
-In this code block we can check realisation of singleton pattern:)
-
-Screenshot of program:
-![Image of program](https://pp.userapi.com/c847019/v847019010/19db33/oYqPlVIcRBk.jpg)
+Результат работы программы:
+![Image of program](https://github.com/cerneiirina/TMPS/blob/master/%D0%91%D0%B5%D0%B7%D1%8B%D0%BC%D1%8F%D0%BD%D0%BD%D1%8B%D0%B9.jpg)
