@@ -38,8 +38,11 @@ public class Map
 }
 ```
 
-1. Factory Method 
+2. Фабричный метод (Factory Method)
 
+Это порождающий паттерн проектирования, который определяет общий интерфейс для создания объектов в суперклассе, позволяя подклассам изменять тип создаваемых объектов.
+
+Паттерн Фабричный метод предлагает создавать объекты не напрямую, используя оператор new, а через вызов особого фабричного метода. Объекты всё равно будут создаваться при помощи  new, но делать это будет фабричный метод.
 ![Image of Factory Method](https://refactoring.guru/images/patterns/cards/factory-method-mini-2x.png)
 
 Declaration of [abstract class](https://github.com/vovaroman/PatternsLab1/blob/master/patternLab/Factory/AbstractObject.cs)
