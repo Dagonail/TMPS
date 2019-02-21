@@ -117,9 +117,6 @@ public class CircleFactory : IUnitFactory
 
 Объявление [Object builder interface](https://github.com/cerneiirina/TMPS/blob/master/patternLab/Factory/IObjectBuilder.cs)
 
-
-Реализацию этого интерфейса вы можете проверить в Factory Method.
-Классы CircleBuilder и RectengleBuilder реализует его.
 ```
 public interface IObjectBuilder
 {       
@@ -130,6 +127,8 @@ void ChangeColor();
 
 }
 ```
+Реализацию этого интерфейса вы можете проверить в Factory Method.
+Классы CircleBuilder и RectengleBuilder реализует его.
 
 5. Проторип (Prototype)
 
@@ -165,3 +164,6 @@ public static RectangleBuilder CopyRectangle(RectangleBuilder tempRectangle)
 
 Результат работы программы:
 ![Image of program](https://github.com/cerneiirina/TMPS/blob/master/%D0%91%D0%B5%D0%B7%D1%8B%D0%BC%D1%8F%D0%BD%D0%BD%D1%8B%D0%B9.jpg)
+
+Вывод :
+ В ходе данной лабораторной работы мы изучили и реализовали порождающие паттерны, они нам упрощают и структурируют код.
