@@ -42,6 +42,7 @@ public class Map
     ***
 }
 ```
+Этот шаблон был использован так как нам была необходима только одна инициализация карты в приложении
 
 2. Фабричный метод (Factory Method)
 
@@ -92,7 +93,7 @@ public interface IUnitFactory
 }
 ```
 
-Creation of inhetitors classes in this [file](https://github.com/vovaroman/PatternsLab1/blob/master/patternLab/Factory/CircleFactory.cs) and this [file](https://github.com/vovaroman/PatternsLab1/blob/master/patternLab/Factory/RectangleFactory.cs)
+Классы наследники созданны в следующих файлов  [file1](https://github.com/cerneiirina/TMPS/blob/master/patternLab/Factory/CircleFactory.cs)  [file2](https://github.com/cerneiirina/TMPS/blob/master/patternLab/Factory/RectangleFactory.cs)
 
 ```
 public class RectangleFactory : IUnitFactory
@@ -118,7 +119,7 @@ public class CircleFactory : IUnitFactory
 
 
 Реализацию этого интерфейса вы можете проверить в Factory Method.
-Классы круга Builder и прямоугольник Builder реализует его.
+Классы CircleBuilder и RectengleBuilder реализует его.
 ```
 public interface IObjectBuilder
 {       
@@ -132,7 +133,7 @@ void ChangeColor();
 
 5. Проторип (Prototype)
 
-Это порождающий паттерн проектирования, который позволяет копировать объекты, не вдаваясь в подробности их реализации. Ниже приведен пример структуры шаблона протопит
+Это порождающий паттерн проектирования, который позволяет копировать объекты, не вдаваясь в подробности их реализации. Ниже приведен пример структуры шаблона прототип
 
 ![Image of Prototype](https://refactoring.guru/images/patterns/diagrams/prototype/structure-2x.png)
 
@@ -159,7 +160,7 @@ public static RectangleBuilder CopyRectangle(RectangleBuilder tempRectangle)
 }
 ```
 
-
+Использовали мы этот паттерн для копирования кругов и квадратов 
 
 
 Результат работы программы:
