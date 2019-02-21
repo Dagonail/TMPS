@@ -1,12 +1,43 @@
 # Tehnici și Mecanisme de Proiectare Software
 
-*Author - Cernei Irina*
+*Подготовила - Черней Ирина, группа TI-164*
 
-*Group - TI-164*
+*Целью данной лабораторией работы было имплементировать 5 порождающих шабловнов*
 
-*Name - Patterns Lab 1 Creational Patterns *
+Были выбраны 5 шаблонов: 
+1. Одиночка (Singleton)
+Это порождающий паттерн проектирования, который гарантирует, что у класса есть только один экземпляр, и предоставляет к нему глобальную точку доступа.
 
-This lab include realisation of next patterns: 
+Чтоб реализовать этот шаблон был создан класс [Map](https://github.com/cerneiirina/TMPS/blob/master/patternLab/Map/Map.cs)
+```
+public class Map
+{
+    private static Map MapObject;
+    ***
+    public static Size Size;
+    private Map(Point p,int height, int width)
+    {
+        Size = new Size(width, height);
+        PointStart = p;
+        GameField = new Rectangle(PointStart, Size);
+        Graphics.FillRectangle(new SolidBrush(Color.OldLace), GameField);
+    }
+    ***
+    public static Map GetInstance(Point p, int height, int width, Graphics gs)
+    {
+        if (MapObject == null)
+        {
+            Graphics = gs;
+            MapObject = new Map(p, height, width);
+            return MapObject;
+        }
+        else
+            return MapObject;
+    }
+    ***
+}
+```
+
 1. Factory Method 
 
 ![Image of Factory Method](https://refactoring.guru/images/patterns/cards/factory-method-mini-2x.png)
@@ -117,34 +148,7 @@ For realisation of singleton pattern was created class [Map](https://github.com/
 One application - one map, philosophy of singleton method.
 
 
-```
-public class Map
-{
-    private static Map MapObject;
-    ***
-    public static Size Size;
-    private Map(Point p,int height, int width)
-    {
-        Size = new Size(width, height);
-        PointStart = p;
-        GameField = new Rectangle(PointStart, Size);
-        Graphics.FillRectangle(new SolidBrush(Color.OldLace), GameField);
-    }
-    ***
-    public static Map GetInstance(Point p, int height, int width, Graphics gs)
-    {
-        if (MapObject == null)
-        {
-            Graphics = gs;
-            MapObject = new Map(p, height, width);
-            return MapObject;
-        }
-        else
-            return MapObject;
-    }
-    ***
-}
-```
+
 
 In this code block we can check realisation of singleton pattern:)
 
